@@ -3,7 +3,7 @@
 
 
 
-import { Component } from "@angular/core";
+import { Component , Input, OnInit} from "@angular/core";
 
 @Component({
     selector:'app-property-card',
@@ -14,21 +14,11 @@ import { Component } from "@angular/core";
 
 
 
-
-
-
-
-
-
 export class PropertyCardComponent{
 
-    Property : any={
-        "Id":1,
-        "Name":"House1",
-        "Type":"House",
-        "Price":1000
+   @Input() property :any
 
-    }
+
 
 }
 
