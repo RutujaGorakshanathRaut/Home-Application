@@ -18,7 +18,10 @@ import { IProperty } from "../IProperty.interface";
 
 export class PropertyCardComponent{
 
-   @Input() property : any
+   constructor() {
+      this.property = {} as IProperty; // You can initialize with default values or an empty object based on your application's requirements.
+  }
+   @Input() property : IProperty;
 
 
 

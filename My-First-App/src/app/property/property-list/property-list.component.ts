@@ -6,6 +6,8 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { HousingService } from "../../services/housing.service";
+import { ActivatedRoute } from "@angular/router";
+import { IProperty } from "../IProperty.interface";
 
 
 @Component({
@@ -19,15 +21,21 @@ import { HousingService } from "../../services/housing.service";
 
 export class PropertyListComponent implements OnInit{
 
-    properties: any ;
+    properties: Array<IProperty> =[];
+    SellRent=1;
     
-   constructor(private housingService: HousingService){}
+   constructor(private route : ActivatedRoute, private housingService: HousingService){}
 
     ngOnInit(): void {
-        this.housingService.getAllProperties().subscribe(
+       if(this.route.snapshot.url.toString()){
+        this.SellRent=2; // we are rent page url
+       }
+        this.housingService.getAllProperties(this.SellRent).subscribe(
             data=>{
                 this.properties=data;
-                console.log(data)
+                console.log(data);
+                console.log(this.route.snapshot.url.toString());
+                
                 } ,error => {
                     console.log('httperror : ');
                     console.log(error);
