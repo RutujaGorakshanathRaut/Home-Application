@@ -9,6 +9,8 @@ import { HousingService } from "./services/housing.service";
 import { Route,RouterModule, Routes } from "@angular/router";
 import { AddPropertyComponent } from "./property/add-property/add-property.component";
 import { PropertyDetailsComponent } from "./property/property-details/property-details.component";
+import { FormsModule } from "@angular/forms";
+
 
 const appRoutes: Routes=[
     {path: '', component: PropertyListComponent},
@@ -29,11 +31,13 @@ const appRoutes: Routes=[
         PropertyCardComponent,
         PropertyListComponent,
         PropertyDetailsComponent,
+        AddPropertyComponent,
       NavBarComponent
    ],
     imports:[
         BrowserModule,
         HttpClientModule,
+        FormsModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers:[
