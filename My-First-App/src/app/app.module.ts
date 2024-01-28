@@ -17,6 +17,10 @@ import { AuthService } from "./services/auth.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 const appRoutes: Routes=[
     {path: '', component: PropertyListComponent},
@@ -45,6 +49,7 @@ const appRoutes: Routes=[
         AddPropertyComponent,
         UserRegisterComponent,
         UserLoginComponent,
+        
        
    ],
     imports:[
@@ -54,7 +59,10 @@ const appRoutes: Routes=[
         ReactiveFormsModule,
         RouterModule.forRoot(appRoutes),
         BrowserAnimationsModule,
-        BsDropdownModule.forRoot()
+        BsDropdownModule.forRoot(),
+        TabsModule.forRoot(),
+        ButtonsModule.forRoot(),
+        BsDatepickerModule.forRoot(),
     ],
     providers:[
         HousingService,
