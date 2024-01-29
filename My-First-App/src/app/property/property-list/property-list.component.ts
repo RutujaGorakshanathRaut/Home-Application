@@ -7,7 +7,8 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { HousingService } from "../../services/housing.service";
 import { ActivatedRoute } from "@angular/router";
-import { IProperty } from "../IProperty.interface";
+import { IPropertyBase } from "../../model/ipropertybase";
+import { IProperty } from "../../model/iproperty";
 
 
 @Component({

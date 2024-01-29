@@ -4,7 +4,7 @@
 
 
 import { Component , Input, OnInit} from "@angular/core";
-import { IProperty } from "../IProperty.interface";
+import { IPropertyBase } from "../../model/ipropertybase";
 
 
 @Component({
@@ -18,12 +18,12 @@ import { IProperty } from "../IProperty.interface";
 
 export class PropertyCardComponent{
 
-   constructor() {
-      this.property = {} as IProperty; // You can initialize with default values or an empty object based on your application's requirements.
-  }
-   @Input() property : IProperty;
-
-
+  
+   @Input()
+   property!: IPropertyBase;
+ 
+  @Input()
+   hideIcons!: boolean ;
 
 }
 
