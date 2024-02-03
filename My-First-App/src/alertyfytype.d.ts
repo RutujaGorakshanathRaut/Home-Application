@@ -1,2 +1,2 @@
 declare module 'alertifyjs';
-declare var localStorage: Storage;
+//declare var localStorage: Storage;
