@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute , Router } from '@angular/router';
+import { HousingService } from '../../services/housing.service';
+import { Property } from '../../model/property';
 
 @Component({
   selector: 'app-property-details',
@@ -7,35 +9,28 @@ import { ActivatedRoute , Router } from '@angular/router';
   styleUrls: ['./property-details.component.css']
 })
 export class PropertyDetailsComponent implements OnInit {
-public properyId: number | undefined ;
+public properyId: number | any ;
 
-  constructor( private route : ActivatedRoute , private router: Router) { }
+property = new Property();
 
-  ngOnInit() {
-    // Ensure that the propertyId is always defined before using it
+constructor(private route: ActivatedRoute,
+            private router: Router,
+            private housingService: HousingService) { }
 
-    this.properyId = this.route.snapshot.params['id'] ? +this.route.snapshot.params['id'] : undefined;
-    this.route.params.subscribe(
-      (params)=>{
-        this.properyId= + params['id'];
-      }
-    )
-  }
-
-  onSelectNext(){
-    // Check if propertyId is defined before incrementing
-
-    if (this.properyId !== undefined) {
-
-      // Use a conditional check to increment or provide a default value
-
-      this.properyId = this.properyId + 1 || 1;
-    this.router.navigate(['property-detail', this.properyId]);
-      
-    
-  
-  }
-    
-  }
+    ngOnInit() {
+          this.properyId = +this.route.snapshot.params['id'];
+          
+          this.route.params.subscribe(
+          (params) => {
+          this.properyId = +params['id'];
+          this.housingService.getProperty(this.properyId).subscribe(
+          (data: Property| any) => {
+               this.property = data;
+              }
+            );
+           }
+         );
+          
+        }  
 
 }
