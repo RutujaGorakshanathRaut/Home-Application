@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\My-First-App",
+    "\\My-First-App\\src",
+    "\\My-First-App\\src\\app",
+    "\\My-First-App\\src\\app\\Pipes",
+    "\\My-First-App\\src\\app\\property",
+    "\\My-First-App\\src\\app\\property\\add-property",
+    "\\My-First-App\\src\\app\\services",
+    "\\WebAPI",
+    "\\WebAPI\\WebAPI",
+    "\\WebAPI\\WebAPI\\Properties"
+  ],
+  "SelectedNode": "\\My-First-App\\src\\app\\services\\housing.service.ts",
+  "PreviewInSolutionExplorer": false
+}

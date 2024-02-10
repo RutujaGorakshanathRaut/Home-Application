@@ -22,6 +22,7 @@ export class AddPropertyComponent implements OnInit {
   property = new Property();
   propertyTypes: Array<string>=['House' , ' Appartment ' , ' Duplex']
   furnishTypes: Array<string>=['Semi ' , ' Fully ', ' Unfurnished']
+  cityList!: any[];
 
   propertyView : IPropertyBase ={
     Id:0,
@@ -45,6 +46,10 @@ export class AddPropertyComponent implements OnInit {
 
   ngOnInit() {
     this.CreateAddPropertyForm();
+    this.housingService.getAllCities().subscribe(data => {
+      this.cityList = data;
+      console.log(data);
+    })
   }
 
   CreateAddPropertyForm() {
