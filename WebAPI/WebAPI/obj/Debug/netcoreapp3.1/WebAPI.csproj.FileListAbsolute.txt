@@ -42,3 +42,5 @@ C:\Users\Rutuja\Documents\AngularPOC\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\runti
 C:\Users\Rutuja\Documents\AngularPOC\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Rutuja\Documents\AngularPOC\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csproj.AssemblyReference.cache
 C:\Users\Rutuja\Documents\AngularPOC\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csproj.CopyComplete
+C:\Users\Rutuja\Documents\AngularPOC\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Rutuja\Documents\AngularPOC\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

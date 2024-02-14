@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Data;
+using WebAPI.Dtos;
 using WebAPI.Interfaces;
 using WebAPI.Models;
 //using WebAPI.Models;
@@ -25,10 +27,12 @@ namespace WebAPI.Controllers
         */
 
         private readonly IUnitOfWork uow;
+        private readonly IMapper mapper;
 
-        public CityController(IUnitOfWork uow)
+        public CityController(IUnitOfWork uow, IMapper mapper)
         {
             this.uow = uow;
+            this.mapper = mapper;
         }
 
         // GET api/city
@@ -37,7 +41,14 @@ namespace WebAPI.Controllers
         {
             //var cities = await repo.GetCitiesAsync();
             var cities = await uow.CityRepository.GetCitiesAsync();
-            return Ok(cities);
+            //var citiesDto = from c in cities
+            //                select new CityDto()
+            //                {
+            //                    Id = c.Id,
+            //                    Name = c.Name
+            //                };
+            var citiesDto = mapper.Map<IEnumerable<CityDto>>(cities);
+            return Ok(citiesDto);
         }
 
         /*
@@ -57,12 +68,23 @@ namespace WebAPI.Controllers
 
         // Post api/city/post --Post the data in JSON Format
         [HttpPost("post")]
-        public async Task<IActionResult> AddCity(City city)
+        public async Task<IActionResult> AddCity(CityDto cityDto)
         {
             // City city = new City();
             // city.Name=cityName;
             //repo.AddCity(city);
             //await repo.SaveAsync();
+            //-------------------------------------------
+            //var city = new City
+            //{
+            //    Name = cityDto.Name,
+            //    LastUpdatedBy = 1,
+            //    LastUpdatedOn = DateTime.Now
+            //};
+
+            var city = mapper.Map<City>(cityDto);
+            city.LastUpdatedBy = 1;
+            city.LastUpdatedOn = DateTime.Now;
             uow.CityRepository.AddCity(city);
             await uow.SaveAsync();
             return StatusCode(201);
