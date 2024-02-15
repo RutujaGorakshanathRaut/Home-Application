@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ipxFV/o0TriVJiTJMdCXPzijAOw2BttHELHnbeaDRtWFEjaH4EaGgutXq0gwVrxuaQRmkTZIkZuU0PTE+3ssiQ==",
+  "dgSpecHash": "0ZVSNkLQ2QQDvxAnUIRyP/9BBt8nlFHrRZeB4aD5/6XLia0vW+jBaFREd495HGASA95AEYlaoBIbt8pPEvjfOw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rutuja\\Documents\\AngularPOC\\WebAPI\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rutuja\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
+    "C:\\Users\\Rutuja\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.26\\microsoft.aspnetcore.jsonpatch.3.1.26.nupkg.sha512",
+    "C:\\Users\\Rutuja\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.26\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.26.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\microsoft.data.sqlclient\\1.0.19249.1\\microsoft.data.sqlclient.1.0.19249.1.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\microsoft.entityframeworkcore\\3.0.0\\microsoft.entityframeworkcore.3.0.0.nupkg.sha512",
@@ -30,6 +32,8 @@
     "C:\\Users\\Rutuja\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\Rutuja\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\Rutuja\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Rutuja\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

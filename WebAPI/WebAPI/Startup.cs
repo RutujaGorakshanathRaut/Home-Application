@@ -34,7 +34,7 @@ namespace WebAPI
         {
             services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddCors();
             // services.AddScoped<ICityRepository, CityRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
