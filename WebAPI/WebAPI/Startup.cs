@@ -14,8 +14,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebAPI.Data;
 using WebAPI.Data.Repo;
+using WebAPI.Extensions;
 using WebAPI.Helpers;
 using WebAPI.Interfaces;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
+
+using System.Net;
 
 namespace WebAPI
 {
@@ -44,10 +49,7 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.ConfigureExceptionHandler(env);
 
             app.UseHttpsRedirection();
 
