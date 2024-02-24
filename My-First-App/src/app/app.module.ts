@@ -11,7 +11,7 @@ import { PropertyDetailsComponent } from "./property/property-details/property-d
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserRegisterComponent } from "./user/user-register/user-register.component";
 import { UserLoginComponent } from "./user/user-login/user-login.component";
-import { UserServiceService } from "./services/user-service.service";
+
 import { AlertyfyService } from "./services/alertyfy.service";
 import { AuthService } from "./services/auth.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -72,7 +72,6 @@ const appRoutes: Routes=[
     ],
     providers:[
         HousingService,
-        UserServiceService,
         AlertyfyService,
         AuthService,
         PropertyDetailResolverService

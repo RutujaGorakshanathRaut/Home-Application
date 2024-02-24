@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators , ValidationErrors, ValidatorFn, AbstractControl, FormBuilder } from '@angular/forms';
 import { UserServiceService } from '../../services/user-service.service';
-import { User } from '../../model/user';
+import { UserForRegister } from '../../model/user';
 import { AlertyfyService } from '../../services/alertyfy.service';
-
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-user-register',
@@ -13,10 +13,10 @@ import { AlertyfyService } from '../../services/alertyfy.service';
 export class UserRegisterComponent implements OnInit {
   registertionForm: FormGroup |any;
 // FormBuilder ==> it is helper class provided by angular which make it easier to biuld reactive form
- user!: User;
+ user!: UserForRegister;
  userSubmitted = false;
   constructor(private fb: FormBuilder ,
-     private userService : UserServiceService,
+    private authService: AuthService,
      private alertyfy : AlertyfyService
      ) {
 
@@ -82,18 +82,32 @@ export class UserRegisterComponent implements OnInit {
       
       //this.user = Object.assign(this.userData());
     //localStorage.setItem('Users', JSON.stringify(this.user));
-      this.userService.addUser(this.userData());
+    /* 
+    this.userService.addUser(this.userData());
       this.registertionForm.reset();
       this.userSubmitted=false;
       this.alertyfy.success('Congrats , You Registered ....!!!!!!!');
     }
     else{
       this.alertyfy.error('OOooopppsss try again ....!!!!!!!');
-    
+    */
+      this.authService.registerUser(this.userData()).subscribe(() =>
+      {
+          this.onReset();
+          this.alertyfy.success('Congrats, you are successfully registered');
+      },error => {
+          console.log(error);
+          this.alertyfy.error(error.error);
+      });
     }
   }
 
-  userData():User{
+  onReset() {
+    this.userSubmitted = false;
+    this.registertionForm.reset();
+}
+
+  userData():UserForRegister{
     return this.user={
       userName: this.userName.value,
       email: this.email.value,

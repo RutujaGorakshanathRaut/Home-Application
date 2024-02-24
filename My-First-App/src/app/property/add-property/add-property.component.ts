@@ -14,8 +14,7 @@ import { AlertyfyService } from '../../services/alertyfy.service';
   styleUrls: ['./add-property.component.css']
 })
 export class AddPropertyComponent implements OnInit {
- 
- // @ViewChild('Form') addPropertyForm:NgForm | any;
+  // @ViewChild('Form') addPropertyForm:NgForm | any;
   @ViewChild('formTabs') formTabs: TabsetComponent | any;
   addPropertyForm: FormGroup | any;
   nextClicked!: boolean;

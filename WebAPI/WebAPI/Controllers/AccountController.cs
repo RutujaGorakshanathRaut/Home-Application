@@ -8,14 +8,18 @@ using System;
 using WebAPI.Dtos;
 using WebAPI.Interfaces;
 using WebAPI.Models;
+using Microsoft.Extensions.Configuration;
+using WebAPI.Extensions;
 
 namespace WebAPI.Controllers
 {
     public class AccountController : BaseController
     {
         private readonly IUnitOfWork uow;
-        public AccountController(IUnitOfWork uow)
+        private readonly IConfiguration configuration;
+        public AccountController(IUnitOfWork uow, IConfiguration configuration)
         {
+            this.configuration = configuration;
             this.uow = uow;
         }
 
@@ -27,7 +31,7 @@ namespace WebAPI.Controllers
 
             if (user == null)
             {
-                return Unauthorized();
+                return Unauthorized("Invalid user name or password");
             }
 
             var loginRes = new LoginResDto();
@@ -36,10 +40,25 @@ namespace WebAPI.Controllers
             return Ok(loginRes);
         }
 
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(LoginReqDto loginReq)
+        {
+            if (loginReq.UserName.IsEmpty() || loginReq.Password.IsEmpty())
+                return BadRequest("User name or password can not be blank");
+
+            if (await uow.UserRepository.UserAlreadyExists(loginReq.UserName))
+                return BadRequest("User already exists, please try something else");
+
+            uow.UserRepository.Register(loginReq.UserName, loginReq.Password);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
+
         private string CreateJWT(User user)
         {
+            var secretKey = configuration.GetSection("AppSettings:Key").Value;
             var key = new SymmetricSecurityKey(Encoding.UTF8
-                .GetBytes("shhh.. this is my top secret"));
+                .GetBytes(secretKey));
 
             var claims = new Claim[] {
                 new Claim(ClaimTypes.Name,user.Username),
