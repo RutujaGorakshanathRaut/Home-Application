@@ -5,7 +5,7 @@ export interface UserForRegister{
     mobile ?: number;
 }
 
-export interface UserForLogin {
+export interface UserForLogin{
     userName: string;
     token: string;
 }

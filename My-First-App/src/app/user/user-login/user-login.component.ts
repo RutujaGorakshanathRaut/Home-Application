@@ -41,9 +41,9 @@ export class UserLoginComponent implements OnInit {
         console.log(loginForm.value);
  // const token = this.authService.authUser(loginForm.value);
  this.authService.authUser(loginForm.value).subscribe(
-  (response: UserForLogin) => {
+  (response: any) => {
       console.log(response);
-      const user = response;
+      const user = response as UserForLogin;
       if (user) {
           localStorage.setItem('token', user.token);
           localStorage.setItem('userName', user.userName);
