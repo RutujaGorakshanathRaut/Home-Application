@@ -21,7 +21,7 @@ authUser(user : any){
 }
 */
 
-authUser(user: UserForLogin) {
+authUser(user: UserForLogin ) {
   return this.http.post('https://localhost:44342/api/account/login', user);
 }
 

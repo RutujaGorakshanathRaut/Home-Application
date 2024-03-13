@@ -13,10 +13,11 @@ import { AlertyfyService } from '../../services/alertyfy.service';
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css']
 })
+ 
 export class AddPropertyComponent implements OnInit {
   // @ViewChild('Form') addPropertyForm:NgForm | any;
   @ViewChild('formTabs') formTabs: TabsetComponent | any;
-  addPropertyForm: FormGroup | any;
+  addPropertyForm: FormGroup |any ;
   nextClicked!: boolean;
   property = new Property();
   propertyTypes: Array<string>=['House' , ' Appartment ' , ' Duplex']
